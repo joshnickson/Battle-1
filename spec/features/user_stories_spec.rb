@@ -29,7 +29,12 @@ feature "attack player 2" do
   scenario "player 1 attacks player 2 and sees confirmation" do
     sign_in_and_play
     click_link "Attack"
-    expect(page).to have_content("HP = 80")
+    expect(page).to have_content("Hagrid attacked Dumbledore")
   end
 
+  scenario "reduce Player 2's HP by 10" do
+    sign_in_and_play
+    click_link "Attack"
+    expect(page).to have_content("HP = 90")
+  end
 end
