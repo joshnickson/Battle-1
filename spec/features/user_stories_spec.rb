@@ -8,12 +8,28 @@ feature "Submit names" do
     expect(page).to have_content("Hagrid", "Dumbledore")
   end
 
+  
+
+end
+
+feature "see hit points" do
   # As Player 1,
   # So I can see how close I am to winning
   # I want to see Player 2's Hit Points
   scenario "can see Player 2's Hit Points" do 
     sign_in_and_play
     expect(page).to have_content("HP = 100")
+  end
+end
+
+feature "attack player 2" do
+  # As Player 1,
+  # So I can win a game of Battle,
+  # I want to attack Player 2, and I want to get a confirmation
+  scenario "player 1 attacks player 2 and sees confirmation" do
+    sign_in_and_play
+    click_link "Attack"
+    expect(page).to have_content("HP = 80")
   end
 
 end
