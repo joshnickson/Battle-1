@@ -1,5 +1,4 @@
 feature "Submit names" do
-  
   # As two Players,
   # So we can play a personalised game of Battle,
   # We want to Start a fight by entering our names and seeing them
@@ -7,9 +6,6 @@ feature "Submit names" do
     sign_in_and_play
     expect(page).to have_content("Hagrid", "Dumbledore")
   end
-
-  
-
 end
 
 feature "see hit points" do
@@ -32,6 +28,9 @@ feature "attack player 2" do
     expect(page).to have_content("Hagrid attacked Dumbledore")
   end
 
+  # As Player 1,
+  # So I can start to win a game of Battle,
+  # I want my attack to reduce Player 2's HP by 10
   scenario "reduce Player 2's HP by 10" do
     sign_in_and_play
     click_link "Attack"
